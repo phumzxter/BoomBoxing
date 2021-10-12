@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+        rel="stylesheet">
+
+    <title>Offline</title>
+    <!--
+
+TemplateMo 548 Training Studio
+
+https://templatemo.com/tm-548-training-studio
+
+-->
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="assets/css/templatemo-training-studio.css">
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">Boom<em> Boxing</em></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <!--ul class="nav">
+                            <li class="main-button"><a href="#">About us</a></li>
+                        </ul-->
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!--top image-->
+    <div class="main-banner" id="top">
+        <img src="assets/images/back-imple.png" alt="example">
+
+
+        <div class="video-overlay header-text">
+
+            <h3>Play with Bot</h3>
+
+
+        </div>
+    </div>
+    <!--top image end-->
+
+    <!--Report content-->
+    <div>
+        <h1></h1>
+    </div>
+    <section class="content">
+        <div class='container'>
+            <div class='row'>
+                <div class="col-3">
+                    <h2>
+                        How does it work?
+                    </h2>
+                </div>
+                <div class="col-9">
+                    <img src="assets/images/1v1_01.png" alt="" class="img-fluid">
+                    <p>In this offline mode, player will play with the bot that we made with C# and state machine. When
+                        it comes to character behavior design, every Unity object has an inspector tab for its own for
+                        developer to add components, which will decide the behavior of the object.</p>
+                    <img src="assets/images/1v1_2.png" alt="" class="img-fluid">
+                    <p> For character object, we need to add multiple components. Picture 2 show all the part that we
+                        have put into the character object in this project.</p>
+                    <p> Transform part is to change the position, rotation, and the scale of the character, how the
+                        character scale and much more. </p>
+                    <p>Animator part is to allows character component to know it what animation it needs to do, this tab
+                        require the animation controller (this file decide the condition for each animation). </p>
+                    <p>Rigidbody and collider are part that allow the physic to affect to the object</p>
+                    <p>Fighter script is our premade script that have the C# code that take the input and let the
+                        character act based on it. </p>
+                    <p>The last component is the LookatTarget script, which is to make the character keep facing the
+                        other object during the game (in this case is the bot.) </p>
+                    <p>The same concept and implementation are applied to the bot object, with the fighter script in the
+                        part, we allow people to just modify the part to change that specific object from human object
+                        to AI object. But in this case, we are trying to make the bot act based on the player movement,
+                        we have put the conditions based on the distances for both object to player object, and based on
+                        the current state of the player, which show the exact state of player object.</p>
+                    <p>Moreover, the game is controlled with the C# file which name BattleController.cs, which will
+                        make the time of the game run and decide the round and time to the game. </p>
+                    <img src="assets/images/1v1_3.png" alt=""class="img-fluid">
+                </div>
+                
+            </div>
+        </div>
+        <hr>
+
+    </section>
+
+    <!--Report content end-->
+
+
+
+
+
+
+    <!--Footer-->
+    <footer>
+        <div class="container">
+            <div class="row" color="#232d39">
+                <div class="col-lg-12" color="#232d39">
+                    <p>A product for Senior Project I - Computer Science - Assumption University</p>
+
+                    <!-- You shall support us a little via PayPal to info@templatemo.com -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer end-->
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/mixitup.js"></script>
+    <script src="assets/js/accordions.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+</body>
+
+</html>

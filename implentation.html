@@ -11,7 +11,7 @@
         href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
         rel="stylesheet">
 
-    <title>Boom Boxing!</title>
+    <title>Implementation</title>
     <!--
 
 TemplateMo 548 Training Studio
@@ -68,14 +68,9 @@ https://templatemo.com/tm-548-training-studio
     </header>
 
 
-
-
-
-
-
     <!--top image-->
     <div class="main-banner" id="top">
-        <img src="assets/images/wp5425905.jpg" alt="example">
+        <img src="assets/images/back-imple.png" alt="example">
 
 
         <div class="video-overlay header-text">
@@ -91,78 +86,94 @@ https://templatemo.com/tm-548-training-studio
     <div>
         <h1></h1>
     </div>
-
     <section class="content">
-        <div class="paragragh"></div>
-        <div>
-            <h2>Game architecture</h2>
-        </div>
-        <div>
-            <p>Boom Boxing is developed by Unity. We also using Github to port for any code changing. This game using
-                provided component-based architecture from Unity.</p>
-            <img src="assets/images/arch.png" alt="example">
-            <p>As implemented in the figure, each game object is attract to multiple components to setup its size
-                (Renderer), how it transform by actions from the input (Transform), its hitbox(Rigid Body), where is it
-                standing in between other object and last of all its behavior based on the mechanics we defined before
-                (Mono Behavior). </p>
-            <p>There are three main game objects in this game: the environment, the avatar or characters and HUD.</p>
-            <p>For environment and HUD, we try to make it as simple, as friendly as possible.</p>
-            <p>
-                image
-            </p>
-        </div>
-        <div>
-            <h2>Character & Game design</h2>
-        </div>
-        <div>
-            <div>
-                <h3>Actions</h3>
+        <div class='container'>
+            <div class='row'>
+                <div>
+                    <h1>Game architecture</h1>
+                </div>
+                <div>
+                    <p>Boom Boxing is developed by Unity. We also using Github to port for any code changing. This game
+                        using
+                        provided component-based architecture from Unity.</p>
+                    <img src="https://koenig-media.raywenderlich.com/uploads/2011/08/unity14_diagram.png" alt="example" class="img-fluid">
+                    <p>As implemented in the figure, each game object is attract to multiple components to setup its
+                        size
+                        (Renderer), how it transform by actions from the input (Transform), its hitbox(Rigid Body),
+                        where is it
+                        standing in between other object and last of all its behavior based on the mechanics we defined
+                        before
+                        (Mono Behavior). </p>
+                </div>
+                
+                <div>
+                    <h1>Character & Game design</h1>
+                </div>
+                <div class='row'>
+                    <div class="col-3">
+                        <h2>
+                            How Boom Boxing recognize word?
+                        </h2>
+                    </div>
+                    <div class="col-9">
+                        <p>Voice control is the core of this project, since the original scope of this project is to
+                            have the game that can be controlled with player voice. Normally, the input system of Unity
+                            is from keyboard and mouse for computer games, for mobile games, we have the hand gesture
+                            and the input from the screen. There are games that allow player to play with voice, but to
+                            be more accurate, it is more like a pitch recognition instead of voice recognition.</p>
+                        <p>For this project, our goal is to have the game listened to player instructions (words and
+                            phrase). Since there are no prebuilt function in Unity to recognize word, but we can still
+                            find a class from unity documents, which named keywordrecognizer, this class allows
+                            developers to make the game listen and recognize the key word or phrase that has been set
+                            up. </p>
+                        <p> There are other ways we find out to be possible for voice recognition such as calling API
+                            from big data, but doing this will require to pay money. As a result, keywordrecognizer are
+                            picked to be our core function in this game.</p>
+                        <p>To be more specific, keywordrecognizer is a class in UnityEngine.Windows.Speech that listens
+                            to speech input and attempts to match uttered phrases to a list of registered keywords. </p>
+                        <p>
+                            There can be many keyword recognizers active at any given time, but no two keyword
+                            recognizers may be listening for the same keyword. This result in many constraints to our
+                            project since there have to be many modifications in the code of the game in order to keep 2
+                            keywordrecognizers from having the same key words.
+                        </p>
+                        
+                    </div>
+                    <img src="assets/images/keyword_reg.png" alt="" class="img-fluid">
+                    <hr>
+                </div>
+                <div class='row'>
+                    <div class="col-3">
+                        <h2>
+                            How do we apply keywordrecognizer in our project?
+                        </h2>
+                    </div>
+                    <div class="col-9">
+                        <img src="assets/images/code_keyword1.png" alt="" class="img-fluid">
+                        <p>This is the example of running keywordrecognizer taken directly from Unity documentation.
+                            From the example, both keyword and phrase are listened. But in the scope of our project,
+                            there are only keywords that need to be recognize. In our project, the code is written
+                            directly to the character prefabricated controller, the idea is amazingly simple, if the
+                            word is recognized, trigger the action (if keyword is “punch”, then trigger action punch
+                            from character animation controller). </p>
+                        <img src="assets/images/code_keyword.png" alt="" class="img-fluid">
+                        <p> There are many constraints that we have gotten from using keywordrecognizer, as mentioned
+                            earlier, the 2 keyword recognizers cannot listen to the same keyword. Which do not allow the
+                            offline mode and online mode to be controlled with the same keyword set. As a solution for
+                            this problem. We have prepared 3 set of keywords which have the same meaning as of the
+                            moving instructions. 1 will be used for the offline mode and other will be used randomly for
+                            2 players in multiplayer modes. By doing this, we are expecting the player not to have any
+                            advantage against other when it comes to multiplayer mode. </p>
+                        <p> Keywordrecognizer might not be the best option for this project, but as in the scope of the
+                            project, all the function are except able. We will keep working on the voice recognition in
+                            the future to find a better solution for this voice control problem, or produce our own
+                            class or code to recognize player voice input. </p>
+                        
+                    </div>
+                </div>
+                
             </div>
-            <div>
-                <p>The avatar in Boom Boxing is design to react perfectly with the input from player. Each state of
-                    action is bind with a boolean variable, so each command is input, this variable will trigger the
-                    animation, also the transform (position) of this avatar and different part of its body. For example:
-                    moving forward will move the character up along with the animation of the legs moving. Input of our
-                    game is one-time per command so the game have to pre-determine the distance of moving. It’s also the
-                    same to other attack action.</p>
-                <p>To translate the voice of player to actions, Boom boxing using Speech API from Unity library,
-                    inherited from the C# library. This API already have trained model for English (U.S.), English
-                    (U.K.), French, German, Japanese, Mandarin Chinese, and Spanish. For this game, we only using
-                    English. In detail, we using Keyword Recognizer as main component.</p>
-                <p>The implementation is very straight-forward, if the speech model recognizes the word from microphone,
-                    it will automatically trigger moving or attack. </p>
-                <img src="assets/images/model.png" alt="example">
-            </div>
-            <div>
-                <h3>Hitbox</h3>
-            </div>
-            <div>
-                <p>The avatar will have separate hitbox for each section part of the body.</p>
-                <p>It has hitboxs for upper body and bellow to trigger the damage take from other avatar. For hand and
-                    feet, we set it as a sphere for easier contact of attack actions. The last one is forearm hitbox, if
-                    attack hitbox contact to this part while avatar is on defense state, damage won’t be count.</p>
-            </div>
-            <div>
-                <h3>
-                    Bot
-                </h3>
-            </div>
-            <div>
-                <p>Every component from main avatar, we apply it for the bot except the actions controller. For
-                    movement, the bot will always face up to the other avatar, wherever the position of other avatar is,
-                    even move left or right. Also, the bot will try to move forward, and attack the player.</p>
-            </div>
-        </div>
-        <div>
-            <h2>Hardware & Software Minimum</h2>
-        </div>
-        <div>
-            <p>Requires microphone</p>
-            <p>OS: Windows Vista for support Windows Speech</p>
-            <p>CPU:  Quad core Intel or AMD (Intel Core2 Quad Q6600m AMD Phenem X4 9750)</p>
-            <p>Memory:  4GB</p>
-        </div>
-
+            <hr>
     </section>
     <!--Report content end-->
 
