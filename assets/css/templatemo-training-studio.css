@@ -800,7 +800,7 @@ features second for implementation
 }
 .feature-item2 h2{
   text-align: left;
-  font-size: 21vh;
+  font-size: 15vh;
   color: #ed563b;
 }
 
@@ -833,7 +833,7 @@ features second for implementation
 }
 .feature-item2 .right-content2 a.text-button2 {
   color: #ed563b;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 /*
